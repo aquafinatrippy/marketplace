@@ -18,11 +18,7 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item @click="goHome">
-          <v-list-item-title>
-            <v-icon>mdi-home-currency-usd</v-icon>HOME
-          </v-list-item-title>
-        </v-list-item>
+        <ThemeSwitch />
         <v-list-item @click="logout">
           <v-list-item-title>
             <v-icon>mdi-power-settings</v-icon>LOGOUT
@@ -33,7 +29,7 @@
 
     <v-toolbar-title @click="goHome" link>
       <v-btn>
-        <v-icon>mdi-home</v-icon>M4RK3DPL4C3
+        <v-icon>mdi-home-currency-usd</v-icon>M4RK3DPL4C3
       </v-btn>
     </v-toolbar-title>
 
@@ -66,11 +62,15 @@
 
 
 <script>
+import ThemeSwitch from "./ThemeSwitch.vue"
 export default {
   data() {
     return {
       bottomNav: 0
     };
+  },
+  components: {
+    ThemeSwitch
   },
   methods: {
     logout() {
