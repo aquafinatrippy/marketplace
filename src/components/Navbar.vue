@@ -31,7 +31,11 @@
       </v-list>
     </v-menu>
 
-    <v-toolbar-title>M4rk3dPl4c3</v-toolbar-title>
+    <v-toolbar-title @click="goHome" link>
+      <v-btn>
+        <v-icon>mdi-home</v-icon>M4RK3DPL4C3
+      </v-btn>
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
     <v-menu offset-y>
@@ -43,7 +47,8 @@
       <v-list>
         <v-list-item @click="goHome">
           <v-list-item-title>
-            69<v-icon>mdi-currency-eur</v-icon>Item name
+            69
+            <v-icon>mdi-currency-eur</v-icon>Item name
           </v-list-item-title>
         </v-list-item>
       </v-list>
