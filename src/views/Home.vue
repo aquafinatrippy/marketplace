@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container>
     <v-row no-gutters>
       <v-col v-for="n in 3" :key="n" cols="12" sm="4">
         <v-card max-width="344" class="mx-auto">
@@ -16,7 +16,7 @@
           <v-card-text>Item description</v-card-text>
 
           <v-card-actions>
-            <v-btn text color="deep-purple accent-4">Read</v-btn>
+            <v-btn text color="deep-purple accent-4" @click="goProduct">Read</v-btn>
             <v-btn text color="deep-purple accent-4">Add cart</v-btn>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -34,6 +34,11 @@
 
 export default {
   name: "Home",
-  components: {}
+  components: {},
+  methods: {
+    goProduct(){
+      this.$router.push({path: "/product"})
+    }
+  }
 };
 </script>
