@@ -13,16 +13,20 @@
 
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
-        <v-btn  dark v-on="on">
-          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        <v-btn dark v-on="on" icon>
+          <v-icon>mdi-menu</v-icon>
         </v-btn>
       </template>
       <v-list>
         <v-list-item @click="goHome">
-          <v-list-item-title> <v-icon>mdi-home-currency-usd</v-icon> HOME</v-list-item-title>
+          <v-list-item-title>
+            <v-icon>mdi-home-currency-usd</v-icon>HOME
+          </v-list-item-title>
         </v-list-item>
         <v-list-item @click="logout">
-          <v-list-item-title> <v-icon>mdi-power-settings</v-icon> LOGOUT</v-list-item-title>
+          <v-list-item-title>
+            <v-icon>mdi-power-settings</v-icon>LOGOUT
+          </v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -31,13 +35,13 @@
 
     <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-account-cog</v-icon>
-      </v-btn>
+    <v-btn icon>
+      <v-icon>mdi-account-cog</v-icon>
+    </v-btn>
 
-      <v-btn icon>
-        <v-icon>mdi-power-settings</v-icon>
-      </v-btn>
+    <v-btn icon>
+      <v-icon>mdi-power-settings</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 
