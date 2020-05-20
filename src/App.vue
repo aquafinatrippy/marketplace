@@ -23,8 +23,8 @@ export default {
   })
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
 main {
-  margin-top: 10%;
+  margin-top: 20vh;
 }
 </style>

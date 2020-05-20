@@ -1,40 +1,54 @@
 <template>
   <v-app-bar
-    :collapse="!collapseOnScroll"
-    :collapse-on-scroll="collapseOnScroll"
     absolute
-    color="deep-purple accent-4"
+    color="#fcb69f"
     dark
-    scroll-target="#scrolling-techniques-6"
+    shrink-on-scroll
+    src="https://picsum.photos/1920/1080?random"
+    scroll-target="#scrolling-techniques-2"
   >
-    <div class="text-center">
-      <v-menu offset-y>
-        <template v-slot:activator="{ on }">
-          <v-app-bar-nav-icon v-on="on"></v-app-bar-nav-icon>
-        </template>
-        <v-list>
-          <v-list-item>
-            <v-list-item-title link @click="goHome">Home</v-list-item-title>
-          </v-list-item>
-          <v-list-item>
-            <v-list-item-title link @click="logout">Logout</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </div>
-    <v-toolbar-title>MarketPlaxe</v-toolbar-title>
+    <template v-slot:img="{ props }">
+      <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
+    </template>
+
+    <v-menu offset-y>
+      <template v-slot:activator="{ on }">
+        <v-btn  dark v-on="on">
+          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item @click="goHome">
+          <v-list-item-title> <v-icon>mdi-home-currency-usd</v-icon> HOME</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="logout">
+          <v-list-item-title> <v-icon>mdi-power-settings</v-icon> LOGOUT</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+
+    <v-toolbar-title>M4rk3dPl4c3</v-toolbar-title>
 
     <v-spacer></v-spacer>
 
-    <v-checkbox v-model="collapseOnScroll" color="white" hide-details></v-checkbox>
+      <v-btn icon>
+        <v-icon>mdi-account-cog</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-power-settings</v-icon>
+      </v-btn>
   </v-app-bar>
 </template>
 
+
 <script>
 export default {
-  data: () => ({
-    collapseOnScroll: true
-  }),
+  data() {
+    return {
+      bottomNav: 0
+    };
+  },
   methods: {
     logout() {
       this.$router.push({ path: "/login" });
@@ -45,13 +59,4 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-.v-list-item__title {
-  cursor: pointer;
-}
-.v-list-item {
-  &:hover {
-    background-color: blue;
-  }
-}
-</style>
+
