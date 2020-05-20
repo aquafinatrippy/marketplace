@@ -34,12 +34,26 @@
     <v-toolbar-title>M4rk3dPl4c3</v-toolbar-title>
 
     <v-spacer></v-spacer>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on }">
+        <v-btn dark v-on="on" icon>
+          <v-icon>mdi-cart</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item @click="goHome">
+          <v-list-item-title>
+            69<v-icon>mdi-currency-eur</v-icon>Item name
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
 
-    <v-btn icon>
+    <v-btn icon @click="goProfile">
       <v-icon>mdi-account-cog</v-icon>
     </v-btn>
 
-    <v-btn icon>
+    <v-btn icon @click="logout">
       <v-icon>mdi-power-settings</v-icon>
     </v-btn>
   </v-app-bar>
@@ -59,6 +73,9 @@ export default {
     },
     goHome() {
       this.$router.push({ path: "/" });
+    },
+    goProfile() {
+      this.$router.push({ path: "/profile" });
     }
   }
 };
