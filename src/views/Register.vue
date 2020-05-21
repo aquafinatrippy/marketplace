@@ -6,22 +6,11 @@
     </v-stepper-step>
 
     <v-stepper-content step="1">
-      <v-card color="grey lighten-1" class="mb-12" height="200px">
+      <v-card class="mb-12" height="200px">
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-
           <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
-
-          <v-select
-            v-model="select"
-            :items="items"
-            :rules="[v => !!v || 'Item is required']"
-            label="Item"
-            required
-          ></v-select>
-
-
-          
+          <v-text-field v-model="password" label="Password" required></v-text-field>
         </v-form>
       </v-card>
       <v-btn color="primary" @click="e6 = 2">Continue</v-btn>
@@ -32,7 +21,7 @@
     <v-stepper-step :complete="e6 > 2" step="2">Tems and conditions</v-stepper-step>
 
     <v-stepper-content step="2">
-      <v-card color="grey lighten-1" class="mb-12" height="200px">
+      <v-card class="mb-12" height="200px">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, iste! Commodi doloribus ut saepe rerum aut magni doloremque suscipit eius? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque aliquid, ea a deserunt sit sed ipsa eligendi reprehenderit possimus mollitia veritatis rerum earum nihil nisi minus quas porro consectetur qui repellat sint similique perferendis commodi iste. Temporibus distinctio totam quisquam.</p>
       </v-card>
       <v-btn color="primary" @click="e6 = 3">Continue</v-btn>
@@ -42,7 +31,6 @@
     <v-stepper-step :complete="e6 > 3" step="3">Start using</v-stepper-step>
 
     <v-stepper-content step="3">
-      
       <v-btn color="primary" @click="e6 = 4">Continue</v-btn>
       <v-btn text>Cancel</v-btn>
     </v-stepper-content>
