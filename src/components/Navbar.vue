@@ -27,8 +27,11 @@
       </v-list>
     </v-menu>
 
-    <v-toolbar-title @click="goHome" link>
-      <v-btn>
+    <v-toolbar-title link>
+      <v-btn color="primary">
+        <v-icon>mdi-account-cash</v-icon>Sell item
+      </v-btn>
+      <v-btn @click="goHome">
         <v-icon>mdi-home-currency-usd</v-icon>M4RK3DPL4C3
       </v-btn>
     </v-toolbar-title>
@@ -62,7 +65,7 @@
 
 
 <script>
-import ThemeSwitch from "./ThemeSwitch.vue"
+import ThemeSwitch from "./ThemeSwitch.vue";
 export default {
   data() {
     return {
