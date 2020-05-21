@@ -6,31 +6,34 @@
       <div class="headline text-center">
           Items for sale
       </div>
-          <v-row no-gutters>
-      <v-col v-for="n in 3" :key="n" cols="12" sm="4">
-        <v-card max-width="344" class="mx-auto">
-          <v-list-item>
-            <v-list-item-avatar color="grey"></v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title class="headline">Item title</v-list-item-title>
-              <v-list-item-subtitle>Seller:</v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-
-          <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
-
-          <v-card-text>Item description</v-card-text>
-
-          <v-card-actions>
-            <v-btn text color="deep-purple accent-4">Read</v-btn>
-            <v-btn text color="deep-purple accent-4">Add cart</v-btn>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
+      <v-container fluid>
+          <v-row>
+            <v-col
+              v-for="n in 9"
+              :key="n"
+              class="d-flex child-flex"
+              cols="4"
+            >
+              <v-card flat tile class="d-flex">
+                <v-img
+                  :src="`https://picsum.photos/500/300?image=${n * 5 + 10}`"
+                  :lazy-src="`https://picsum.photos/10/6?image=${n * 5 + 10}`"
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+                    </v-row>
+                  </template>
+                </v-img>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
   </v-container>
 </template>
