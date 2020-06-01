@@ -50,6 +50,11 @@
             <v-icon>mdi-currency-eur</v-icon>Item name
           </v-list-item-title>
         </v-list-item>
+        <v-list-item @click="goPayment">
+          <v-list-item-title>
+            <v-btn>Checkout</v-btn>
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
 
@@ -84,6 +89,9 @@ export default {
     },
     goProfile() {
       this.$router.push({ path: "/profile" });
+    },
+    goPayment(){
+      this.$router.push({name: 'Payment'})
     }
   }
 };
