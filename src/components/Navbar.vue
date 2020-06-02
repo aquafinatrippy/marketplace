@@ -31,12 +31,13 @@
       <v-btn color="primary">
         <v-icon>mdi-account-cash</v-icon>Sell item
       </v-btn>
-      <v-btn @click="goHome">
-        <v-icon>mdi-home-currency-usd</v-icon>M4RK3DPL4C3
-      </v-btn>
+      
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
+    <v-btn icon @click="goHome">
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn dark v-on="on" icon>
