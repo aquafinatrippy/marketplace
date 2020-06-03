@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="user">
+    <div v-if="isLoggedIn">
       <Navbar />
     </div>
     <div v-else></div>
@@ -15,7 +15,7 @@
 <script>
   import Navbar from "./components/Navbar";
   import Footer from "./components/Footer";
-  import { mapState } from "vuex";
+  import { mapGetters } from "vuex";
 
   export default {
     name: "App",
@@ -25,7 +25,7 @@
       Footer,
     },
     computed: {
-      ...mapState["user"],
+      ...mapGetters(["isLoggedIn"]),
     },
 
     data: () => ({
