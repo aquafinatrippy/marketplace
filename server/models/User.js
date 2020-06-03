@@ -25,6 +25,20 @@ UserSchema.pre("save", async function(next) {
   user.password = await bcrypt.hash(user.password, 8);
 });
 
+UserSchema.statics.login = async (username, password) => {
+  try {
+    const user = await User.findOne({
+      username: String(username),
+    });
+    if (await bcrypt.compare(password, user.password || "")) {
+      return user;
+    }
+    throw new Error();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
