@@ -1,16 +1,12 @@
 //imports
-const express = require('express')
-require('dotenv').config()
+const express = require("express");
+const router = require("./router");
+require("dotenv").config();
 
+const app = express();
 
-const app = express()
+app.use("/api", router);
 
-app.get('/', (req, res) => {
-    res.send("Hellor world")
-})
-
-
-
-app.listen(process.env.PORT, () => {
-    console.log(`server running on port ${process.env.PORT}`)
-})
+app.listen(process.env.serverPORT, () => {
+  console.log(`server running on port ${process.env.serverPORT}`);
+});
