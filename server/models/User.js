@@ -17,13 +17,12 @@ const UserSchema = mongoose.Schema({
 
 mongoose.set("useCreateIndex", true);
 
-UserSchema.pre("save", async function(next) {
-  // Hash the password before saving the user model
-  const user = this;
-  if (!user.isModified("password")) {
-    return next();
-  }
-  user.password = await bcrypt.hash(user.password, 8);
+UserSchema.pre('save', async function(next) {
+	const user = this;
+	if (!user.isModified('password')) {
+		return next();
+	}
+	user.password = await bcrypt.hash(user.password, 8);
 });
 
 UserSchema.statics.login = async (username, password) => {
