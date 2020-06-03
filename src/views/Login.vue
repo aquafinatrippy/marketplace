@@ -16,6 +16,7 @@
                     name="login"
                     prepend-icon="mdi-account-edit"
                     type="text"
+                    v-model="username"
                   ></v-text-field>
 
                   <v-text-field
@@ -24,13 +25,14 @@
                     name="password"
                     prepend-icon="mdi-account-key"
                     type="password"
+                    v-model="password"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="secondary" @click="goRegister">Register</v-btn>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn color="primary" @click="log">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -41,23 +43,39 @@
 </template>
 
 <script>
-export default {
-  props: {
-    source: String
-  },
-  methods: {
-    goRegister() {
-      this.$router.push({ name: "Register" });
-    }
-  }
-};
+  import { mapActions } from "vuex";
+
+  export default {
+    data: () => ({
+      username: "",
+      password: "",
+    }),
+    props: {
+      source: String,
+    },
+    methods: {
+      ...mapActions(["login"]),
+      goRegister() {
+        this.$router.push({ name: "Register" });
+      },
+      async log() {
+        try {
+          let usr = this.username;
+          let pw = this.password;
+          await this.login({ usr, pw });
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    },
+  };
 </script>
 
 <style lang="scss" scoped>
-main {
-  margin-top: 0 !important;
-}
-.primary{
-  opacity: 0.7;
-}
+  main {
+    margin-top: 0 !important;
+  }
+  .primary {
+    opacity: 0.7;
+  }
 </style>

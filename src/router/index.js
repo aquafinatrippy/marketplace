@@ -6,6 +6,7 @@ import Register from "../views/Register.vue";
 import Profile from "../views/Profile";
 import Product from "../views/Product";
 import Payment from "../views/Payment";
+import store from "../store";
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,10 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/about",
@@ -32,29 +37,52 @@ const routes = [
   {
     path: "/register",
     name: "Register",
-    component: Register
+    component: Register,
   },
   {
     path: "/profile",
     name: "Profile",
-    component: Profile
+    component: Profile,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: "/product",
     name: "Product",
-    component: Product
+    component: Product,
+
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    path: '/pay',
-    name: 'Payment',
-    component: Payment
-  }
+    path: "/pay",
+    name: "Payment",
+    component: Payment,
+
+    meta: {
+      requiresAuth: true,
+    },
+  },
 ];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (store.state.user) {
+      next();
+    } else {
+      next("/");
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;

@@ -11,6 +11,6 @@ app.use(bodyparser.json());
 
 app.use("/api", router);
 
-app.listen(process.env.serverPORT, () => {
-  console.log(`server running on port ${process.env.serverPORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`server running on port ${process.env.PORT}`);
 });

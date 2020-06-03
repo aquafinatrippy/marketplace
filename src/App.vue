@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <Navbar />
+    <div v-if="user">
+      <Navbar />
+    </div>
+    <div v-else></div>
 
     <v-content>
       <router-view></router-view>
@@ -10,24 +13,28 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+  import Navbar from "./components/Navbar";
+  import Footer from "./components/Footer";
+  import { mapState } from "vuex";
 
-export default {
-  name: "App",
+  export default {
+    name: "App",
 
-  components: {
-    Navbar,
-    Footer
-  },
+    components: {
+      Navbar,
+      Footer,
+    },
+    computed: {
+      ...mapState["user"],
+    },
 
-  data: () => ({
-    //
-  })
-};
+    data: () => ({
+      //
+    }),
+  };
 </script>
-<style lang="scss" >
-main {
-  margin-top: 20vh;
-}
+<style lang="scss">
+  main {
+    margin-top: 20vh;
+  }
 </style>

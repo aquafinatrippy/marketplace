@@ -31,7 +31,7 @@ module.exports = {
         .cookie("token", token, {
           expires: new Date(Date.now),
         })
-        .json(user);
+        .json({user, status: "OK"});
     } catch (err) {
       console.log(err);
       res.status(503).json({ error: err });
