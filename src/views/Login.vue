@@ -34,6 +34,9 @@
                 <v-btn color="secondary" @click="goRegister">Register</v-btn>
                 <v-btn color="primary" @click="log">Login</v-btn>
               </v-card-actions>
+              <div v-if="error">
+                {{ error }}
+              </div>
             </v-card>
           </v-col>
         </v-row>
@@ -49,6 +52,7 @@
     data: () => ({
       username: "",
       password: "",
+      error: "",
     }),
     props: {
       source: String,
@@ -60,11 +64,13 @@
       },
       async log() {
         try {
-          let usr = this.username;
-          let pw = this.password;
-          await this.login({ usr, pw });
+          let logDet = {
+            username: this.username,
+            password: this.password,
+          };
+          await this.login(logDet);
         } catch (error) {
-          console.log(error);
+          this.error = error;
         }
       },
     },
