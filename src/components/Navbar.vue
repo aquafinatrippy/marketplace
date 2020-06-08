@@ -11,21 +11,7 @@
       <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
     </template>
 
-    <v-menu offset-y>
-      <template v-slot:activator="{ on }">
-        <v-btn dark v-on="on" icon>
-          <v-icon>mdi-menu</v-icon>
-        </v-btn>
-      </template>
-      <v-list>
-        <ThemeSwitch />
-        <v-list-item @click="logout">
-          <v-list-item-title>
-            <v-icon>mdi-power-settings</v-icon>LOGOUT
-          </v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
+    
 
     <v-toolbar-title link>
       <v-btn color="primary" @click="goSell">
@@ -71,7 +57,6 @@
 
 
 <script>
-import ThemeSwitch from "./ThemeSwitch.vue";
 export default {
   data() {
     return {
@@ -79,7 +64,7 @@ export default {
     };
   },
   components: {
-    ThemeSwitch
+    
   },
   methods: {
     logout() {
