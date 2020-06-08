@@ -37,4 +37,7 @@
   main {
     margin-top: 20vh;
   }
+  .theme--light.v-application{
+    background: linear-gradient(to right, #d9d9d9, #ffffff) !important;
+  }
 </style>
