@@ -6,6 +6,7 @@ import Register from "../views/Register.vue";
 import Profile from "../views/Profile";
 import Product from "../views/Product";
 import Payment from "../views/Payment";
+import UploadSell from "../views/UploadSell";
 import store from "../store";
 
 Vue.use(VueRouter);
@@ -65,6 +66,14 @@ const routes = [
       requiresAuth: true,
     },
   },
+  {
+    path: '/sell',
+    name: 'Sell',
+    component: UploadSell,
+    meta: {
+      requiresAuth: true
+    }
+  }
 ];
 
 const router = new VueRouter({

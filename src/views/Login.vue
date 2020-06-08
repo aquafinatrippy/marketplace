@@ -69,6 +69,7 @@
             password: this.password,
           };
           await this.login(logDet);
+          this.$router.push({name: 'Home'})
         } catch (error) {
           this.error = error;
         }

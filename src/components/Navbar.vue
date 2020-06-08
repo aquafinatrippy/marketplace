@@ -28,7 +28,7 @@
     </v-menu>
 
     <v-toolbar-title link>
-      <v-btn color="primary">
+      <v-btn color="primary" @click="goSell">
         <v-icon>mdi-account-cash</v-icon>Sell item
       </v-btn>
       
@@ -93,6 +93,9 @@ export default {
     },
     goPayment(){
       this.$router.push({name: 'Payment'})
+    },
+    goSell(){
+      this.$router.push({name: 'Sell'})
     }
   }
 };
