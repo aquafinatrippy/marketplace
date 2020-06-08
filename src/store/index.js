@@ -3,8 +3,9 @@ import Vuex from "vuex";
 import axios from "axios";
 
 Vue.use(Vuex);
-
+let url = "http://localhost:3000/api/"
 export default new Vuex.Store({
+   
   state: {
     user: null,
   },
@@ -12,11 +13,14 @@ export default new Vuex.Store({
     LOGIN(state, user) {
       state.user = user;
     },
+    REGISTER(state, user){
+      state.user = user
+    }
   },
   actions: {
     async login({ commit }, user) {
       const { data } = await axios.post(
-        "http://localhost:3000/api/user/login",
+        `${url}user/login`,
         user,
         { withCredentials: true }
       );
@@ -27,6 +31,19 @@ export default new Vuex.Store({
         throw data;
       }
     },
+    async register({commit}, user){
+      const { data } = await axios.post(
+        `${url}user/register`,
+        user,
+        { withCredentials: true }
+      );
+      if (data.status === "OK") {
+        const { user } = data;
+        commit("REGISTER", user);
+      } else {
+        throw data;
+      }
+    }
   },
   getters: {
     isLoggedIn(state) {

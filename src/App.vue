@@ -8,7 +8,11 @@
     <v-content>
       <router-view></router-view>
     </v-content>
-    <Footer />
+    <div v-if="isLoggedIn">
+      <Footer />
+    </div>
+    <div v-else></div>
+    
   </v-app>
 </template>
 
