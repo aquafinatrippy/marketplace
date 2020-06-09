@@ -5,10 +5,9 @@
     dark
     shrink-on-scroll
     src="https://picsum.photos/1920/1080?random"
-    scroll-target="#scrolling-techniques-2"
   >
     <template v-slot:img="{ props }">
-      <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
+      <v-img v-bind="props" gradient="to bottom, rgba(0, 210, 255, 0.5), rgb(58, 123, 213, 0.5)"></v-img>
     </template>
 
     
