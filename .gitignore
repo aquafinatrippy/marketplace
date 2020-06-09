@@ -15,7 +15,7 @@ yarn-error.log*
 .env
 
 #assets
-/uploads
+/src/assets/uploads/*
 
 # Editor directories and files
 .idea
