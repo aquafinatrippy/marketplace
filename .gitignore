@@ -14,6 +14,9 @@ yarn-error.log*
 # server files
 .env
 
+#assets
+/uploads
+
 # Editor directories and files
 .idea
 .vscode
