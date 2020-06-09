@@ -20,7 +20,7 @@ const ItemSchema = mongoose.Schema({
   
     image: {
       type: String,
-      data: Buffer,
+      required: true,
     },
 });
 
