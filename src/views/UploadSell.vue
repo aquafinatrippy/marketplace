@@ -10,7 +10,12 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    name: "",
+    desc: ""
+  })
+};
 </script>
 
 <style lang="sass" scoped>
