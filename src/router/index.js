@@ -15,11 +15,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
-
-    meta: {
-      requiresAuth: true,
-    },
+    component: Home
   },
   {
     path: "/about",
@@ -85,7 +81,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (!store.getters.isLoggedIn) {
-      next({name: 'Login'});
+      next({name: 'Home'});
     } else {
       next();
     }

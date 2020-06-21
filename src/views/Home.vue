@@ -16,7 +16,7 @@
 <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
 </div>
 <div v-else>
-<v-img :src="x.image.replace('src/assets/uploads/', '@')" height="194"></v-img>
+<v-img :src="x.image.replace(/\\/g, '/')" height="194"></v-img>
 <v-img src="@/assets/uploads/81825596_797836490641894_6789005266634407936_n.jpg"></v-img>
 </div>
           
