@@ -10,19 +10,16 @@
       <v-img v-bind="props" gradient="to bottom, rgba(0, 210, 255, 0.5), rgb(58, 123, 213, 0.5)"></v-img>
     </template>
 
-    
-
     <v-toolbar-title link>
       <v-btn color="primary" @click="goSell">
         <v-icon>mdi-account-cash</v-icon>Sell item
       </v-btn>
-      
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
     <v-btn icon @click="goHome">
-        <v-icon>mdi-home</v-icon>
-      </v-btn>
+      <v-icon>mdi-home</v-icon>
+    </v-btn>
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn dark v-on="on" icon>
@@ -56,17 +53,18 @@
 
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       bottomNav: 0
     };
   },
-  components: {
-    
-  },
+  components: {},
   methods: {
-    logout() {
+    ...mapActions(["loggingout"]),
+    async logout() {
+      this.loggingout()
       this.$router.push({ path: "/login" });
     },
     goHome() {
@@ -75,11 +73,11 @@ export default {
     goProfile() {
       this.$router.push({ path: "/profile" });
     },
-    goPayment(){
-      this.$router.push({name: 'Payment'})
+    goPayment() {
+      this.$router.push({ name: "Payment" });
     },
-    goSell(){
-      this.$router.push({name: 'Sell'})
+    goSell() {
+      this.$router.push({ name: "Sell" });
     }
   }
 };
