@@ -10,21 +10,19 @@
               <v-list-item-subtitle>{{x.seller}}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
-          
 
-<div v-if="x.image == null">
-<v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
-</div>
-<div v-else>
-<v-img :src="x.image.replace(/\\/g, '/')" height="194"></v-img>
-<v-img src="@/assets/uploads/81825596_797836490641894_6789005266634407936_n.jpg"></v-img>
-</div>
-          
+          <div v-if="x.image == null">
+            <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194"></v-img>
+          </div>
+          <div v-else>
+            <v-img :src="x.image.replace(/\\/g, '/')" height="194"></v-img>
+            <v-img src="@/assets/uploads/81825596_797836490641894_6789005266634407936_n.jpg"></v-img>
+          </div>
 
           <v-card-text>{{x.description}}</v-card-text>
 
           <v-card-actions>
-            <v-btn text color="deep-purple accent-4" @click="goProduct">Read</v-btn>
+            <v-btn text color="deep-purple accent-4" @click="goProduct(x._id)">Read</v-btn>
             <v-btn text color="deep-purple accent-4">Add cart</v-btn>
             <v-spacer></v-spacer>
             <v-btn icon>
@@ -42,13 +40,12 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Home",
-  data: () => ({
-  }),
+  data: () => ({}),
   components: {},
   methods: {
     ...mapActions(["getItems"]),
-    goProduct() {
-      this.$router.push({ path: "/product" });
+    goProduct(id) {
+      this.$router.push({ name: "Product", params: { id } });
     }
   },
   created() {
