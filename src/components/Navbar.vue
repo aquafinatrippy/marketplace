@@ -16,7 +16,7 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <v-btn icon @click="goHome">
+      <v-btn icon @click="goHome" v-if="this.$route.name != 'Home'">
         <v-icon>mdi-home</v-icon>
       </v-btn>
       <v-menu offset-y v-if="isLoggedIn">

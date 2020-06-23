@@ -21,8 +21,7 @@
           <v-card-text>{{x.description}}</v-card-text>
 
           <v-card-actions>
-            <v-btn text color="deep-purple accent-4" @click="goProduct(x._id)">More info</v-btn>
-            <v-spacer></v-spacer>
+            <v-btn text color="primary" @click="goProduct(x._id)">More info</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>

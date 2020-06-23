@@ -3,10 +3,10 @@
     <v-container>
       <v-row align="center">
         <v-item-group v-model="window" class="shrink mr-6" mandatory tag="v-flex">
-          <v-item v-for="n in length" :key="n" v-slot:default="{ active, toggle }">
+          <v-item  v-slot:default="{ active }">
             <div>
-              <v-btn :input-value="active" icon @click="toggle">
-                <v-icon>mdi-record</v-icon>
+              <v-btn :input-value="active" icon @click="backwards" >
+                <v-icon>mdi-step-backward-2</v-icon>
               </v-btn>
             </div>
           </v-item>
@@ -69,6 +69,9 @@ export default {
     getSrc(name) {
       var images = require.context("../assets/uploads/", false, /\.jpg$/);
       return images("./" + name + ".jpg");
+    },
+    backwards(){
+      this.$router.go(-1)
     }
   }
 };
