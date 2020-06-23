@@ -19,9 +19,9 @@ export default new Vuex.Store({
     ITEMS(state, items) {
       state.items = items;
     },
-    LOGOUT(state){
+    LOGOUT(state) {
       state.user = null;
-    }
+    },
   },
   actions: {
     async getItems({ commit }) {
@@ -50,9 +50,9 @@ export default new Vuex.Store({
         throw data;
       }
     },
-    async loggingout({commit}){
-      commit("LOGOUT")
-    }
+    async loggingout({ commit }) {
+      commit("LOGOUT");
+    },
   },
   getters: {
     isLoggedIn(state) {
@@ -60,6 +60,9 @@ export default new Vuex.Store({
     },
     giveItems(state) {
       return state.items;
+    },
+    singleItemGet: (state) => (id) => {
+      return state.items.filter((item) => item._id == id);
     },
   },
   modules: {},

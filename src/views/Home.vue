@@ -21,12 +21,8 @@
           <v-card-text>{{x.description}}</v-card-text>
 
           <v-card-actions>
-            <v-btn text color="deep-purple accent-4" @click="goProduct(x._id)">Read</v-btn>
-            <v-btn text color="deep-purple accent-4">Add cart</v-btn>
+            <v-btn text color="deep-purple accent-4" @click="goProduct(x._id)">More info</v-btn>
             <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon>mdi-heart</v-icon>
-            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -44,18 +40,19 @@ export default {
   methods: {
     ...mapActions(["getItems"]),
     goProduct(id) {
+      this.singleItemGet(id);
       this.$router.push({ name: "Product", params: { id } });
     },
     getSrc(name) {
-        var images = require.context('../assets/uploads/', false, /\.jpg$/);
-        return images('./' + name + ".jpg")
+      var images = require.context("../assets/uploads/", false, /\.jpg$/);
+      return images("./" + name + ".jpg");
     }
   },
   created() {
     this.getItems();
   },
   computed: {
-    ...mapGetters(["giveItems"])
+    ...mapGetters(["giveItems", "singleItemGet"])
   }
 };
 </script>
